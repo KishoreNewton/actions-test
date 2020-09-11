@@ -12,3 +12,9 @@ jobs:
               run: |
                 node -v
                 npm -v
+
+    run-another-one:
+        runs-on: ubuntu-16.04
+        steps:
+            - name: echo a string
+              run: echo "Hello from old ubuntu os"
