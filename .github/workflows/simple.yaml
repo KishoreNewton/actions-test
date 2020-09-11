@@ -12,6 +12,11 @@ jobs:
               run: |
                 node -v
                 npm -v
+            - name: python command
+              run: |
+                import platform
+                print(platform.process())
+              shell: python
 
     run-another-one:
         runs-on: ubuntu-16.04
