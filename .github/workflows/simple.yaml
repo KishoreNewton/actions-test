@@ -18,8 +18,11 @@ jobs:
                 print(platform.processor())
               shell: python
 
-    run-another-one:
-        runs-on: ubuntu-16.04
+    run-windows-one:
+        runs-on: windows-latest
         steps:
-            - name: echo a string
-              run: echo "Hello from old ubuntu os"
+            - name: Directory Powershell
+              run: Get-Location
+            - name: Directory bash
+              run: pwd
+              shell: bash
