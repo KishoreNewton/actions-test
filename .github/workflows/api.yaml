@@ -2,6 +2,16 @@ name: Create issue on commit
 on:
 - push
 jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Decrypt file
+        run: gpg --batch --yes --decrypt --passphrase="$PASSWORD" --output $HOME/secret.json my_secret.json.gpg
+        env:
+          PASSWORD: ${{ secrets.ENC }}
+      - name: Print our file content
+        run: cat $HOME/secret.json
   create_issue:
     runs-on: ubuntu-latest
     steps:
