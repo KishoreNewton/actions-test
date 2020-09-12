@@ -1,0 +1,10 @@
+name: Action Workflow
+
+on:
+    push:
+        branches:
+            - master
+            - 'feature/*'
+            - 'feature/**'
+        branches-ignore:
+            - null
