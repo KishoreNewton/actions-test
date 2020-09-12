@@ -1,0 +1,14 @@
+name: Cron Job
+
+on: 
+    schedule:
+        - cron: "0/5 * * * *"
+        - cron: "0/6 * * * *"
+    pull_request
+
+jobs: 
+    run-shell-command:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Executes after time
+              run: echo "Hello from cron job"
