@@ -8,3 +8,10 @@ on:
             - 'feature/**'
         branches-ignore:
             - null
+        tags:
+            - v1.*
+        paths:
+            - '**.js'
+            - "!filename.js"
+        paths-ignore:
+            - 'docs/**'
