@@ -28,7 +28,7 @@ jobs:
             - name: Run a script
               uses: docker://node:12.14.1-alpine3.10
               with:
-                entrypoint: "execute.sh"
+                entrypoint: "./execute.sh"
     node_docker:
         runs-on: ubuntu-latest
         services:
