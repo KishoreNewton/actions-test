@@ -1,0 +1,47 @@
+name: Container
+
+on: pull_request
+
+jobs:
+    docker-steps:
+        runs-on: ubuntu-latest
+        container:
+            image: node:10.18.0-jessie
+        steps:
+            - name: log node version
+              run: node -v
+            - name: Step with docker
+              uses: docker://node:12.14.1-alpine3.10
+              with:
+                entrypoint: "/bin/echo"
+                args: "Hello world"
+            - uses: actions/checkout@v2.3.2
+            - name: Find a script
+              uses: docker://node:12.14.1-alpine3.10
+              with:
+                entrypoint: /bin/ls
+                args: -l
+            - name: Run a script
+              uses: docker://node:12.14.1-alpine3.10
+              with:
+                entrypoint: /bin/pwd
+            # - name: Run a script
+            #   uses: docker://node:12.14.1-alpine3.10
+            #   with:
+            #     entrypoint: "./execute.sh"
+    # node_docker:
+    #     runs-on: ubuntu-latest
+    #     services:
+    #         app:
+    #             image: kishorenewton/node-api:latest 
+    #             ports:
+    #                 - 3000:3000
+    #         mongo:
+    #             image: mongo
+    #             ports:
+    #                 - "27017:27017"
+    #     steps:
+    #         - name: Post an user
+    #           run: "curl -X POST http://localhost:3000/api/user -H 'Content-Type: application/json' -d '{\"username\": \"hello\", \"address\": \"dwded\"}'"
+    #         - name: Get Users
+    #           run: curl http://localhost:3000/api/user
