@@ -29,7 +29,7 @@ jobs:
             - name: Run a script
               uses: docker://node:12.14.1-alpine3.10
               with:
-                entrypoint: /github/workspace/execute.sh
+                entrypoint: ["sh", "/execute.sh"]
                 args: "Some string"
     node_docker:
         runs-on: ubuntu-latest
