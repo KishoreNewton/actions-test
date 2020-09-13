@@ -26,7 +26,7 @@ jobs:
               with:
                 entrypoint: /bin/pwd
             - name: Run a script
-              user: actions/checkout@v2.3.2
+              uses: actions/checkout@v2.3.2
               uses: docker://node:12.14.1-alpine3.10
               with:
                 entrypoint: /github/workspace/execute.sh
