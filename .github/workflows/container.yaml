@@ -16,12 +16,11 @@ jobs:
                 entrypoint: "/bin/echo"
                 args: "Hello world"
             - uses: actions/checkout@v2.3.2
-            - name: Run a script
+            - name: Find a script
               uses: docker://node:12.14.1-alpine3.10
-              run: ls -l
-              # with:
-              #   entrypoint: ./execute.sh
-              #   args: "Some string"
+              with:
+                entrypoint: /bin/ls
+                args: -l
     node_docker:
         runs-on: ubuntu-latest
         services:
